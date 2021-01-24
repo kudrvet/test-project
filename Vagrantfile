@@ -2,13 +2,13 @@ require 'yaml'
 require 'fileutils'
 
 required_plugins_installed = nil
-required_plugins = %w( vagrant-hostmanager vagrant-vbguest )
-required_plugins.each do |plugin|
-  unless Vagrant.has_plugin? plugin
-    system "vagrant plugin install #{plugin}"
-    required_plugins_installed = true
-  end
-end
+# required_plugins = %w( vagrant-hostmanager vagrant-vbguest )
+# required_plugins.each do |plugin|
+#   unless Vagrant.has_plugin? plugin
+#     system "vagrant plugin install #{plugin}"
+#     required_plugins_installed = true
+#   end
+# end
 
 # IF plugin[s] was just installed - restart required
 if required_plugins_installed
@@ -18,8 +18,8 @@ if required_plugins_installed
 end
 
 domains = {
-  frontend: 'y2aa-frontend.test',
-  backend:  'y2aa-backend.test'
+  frontend: 'site',
+  backend:  'site'
 }
 
 config = {

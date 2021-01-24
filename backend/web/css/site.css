@@ -137,3 +137,13 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/*.site-index {*/
+/*    width: 400px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.feedback-title {
+    text-align: center;
+    margin-bottom: 20px;
+}

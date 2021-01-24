@@ -1,53 +1,50 @@
-<?php
-
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
-?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+<h1 class='h1-center'> Форма обратной связи </h1>
+    <form class="contact-form-container" action="/index" method="post">
+            <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>"/>
+            <div class="form-inputs-item">
+                <p>Name </p>
+                <input type="text" name="UserForm[name]" aria-required="true"
+                       value= "<?= htmlspecialchars($userForm['name']) ?>" placeholder="Name">
+                <div class="error">
+                    <label class=error-msg> <?= $errors['name'] ?? "" ?></label>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+            <div class="form-inputs-item">
+                <p>Surname </p>
+                <input type="text" name="UserForm[surname]" aria-required="true"
+                       value= "<?= htmlspecialchars($userForm['surname']) ?>" placeholder = "Surname ">
+                <div class="error">
+                    <label class=error-msg> <?= $errors['surname'] ?? "" ?></label>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="form-inputs-item">
+                <p>Phone </p>
+                <input type="text" name="UserForm[phone]" placeholder="+7(999)-999-99-99" aria-required="true"
+                       value= "<?= htmlspecialchars($userForm['phone']) ?>" placeholder = "Phone" >
+                <div class="error">
+                    <label class=error-msg> <?= $errors['phone'] ?? "" ?></label>
+                </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
             </div>
-        </div>
-
-    </div>
-</div>
+            <div class="form-inputs-item">
+                <p>Email </p>
+                <input type="text" name="UserForm[email]" aria-required="true"
+                       value= "<?= htmlspecialchars($userForm['email']) ?>" placeholder = "Email">
+                <div class="error">
+                    <label class=error-msg> <?= $errors['email'] ?? "" ?></label>
+                </div>
+            </div>
+            <div class="form-inputs-item">
+                <p>Text</p>
+                <textarea aria-required="true" rows ='8'
+                          name=" UserForm[text]"> <?= htmlspecialchars($userForm['text']) ?> </textarea>
+                <div class="error">
+                    <label class=error-msg> <?= $errors['text'] ?? "" ?></label>
+                </div>
+            </div>
+            <div class="form-inputs-item">
+                <div class="button-block">
+                    <button>Отправить</button>
+                </div>
+            </div>
+    </form>

@@ -14,15 +14,19 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation' => false,
+            'baseUrl'=>'',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            //моя правка 1 строка
+            'enableSession' => true,
+            'identityCookie' => ['name' => '_identity-infosite', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'infosite',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -36,6 +40,20 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+
+        'urlManager'=>[
+//            'scriptUrl'=>'/index.php',
+            'showScriptName' => false,
+            'enablePrettyUrl' => true,
+            'rules' =>
+            [
+                '/news' => 'site/news',
+                '/about' => 'site/about',
+                '/index' => 'site/index',
+                '/services' => 'site/services'
+            ]
+        ],
+        // us
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

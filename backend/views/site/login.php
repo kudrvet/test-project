@@ -1,9 +1,5 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -27,4 +23,8 @@ $this->title = 'Login';
                 </div>
 
             <?php ActiveForm::end(); ?>
+
+    <?= Html::beginForm(['site/signup'], 'get') ?>
+    <?= Html::submitButton('Регистрация ', ['class' => 'btn btn-success btn-block']) ?>
+    <?= Html::endForm() ?>
 </div>
